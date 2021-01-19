@@ -66,7 +66,7 @@ cat > $INSTALL_DIR/policy.xml <<EOF
   <policy domain="resource" name="area" value="128MB"/>
   <policy domain="resource" name="disk" value="1GiB"/>
   <policy domain="delegate" rights="none" pattern="URL" />
-  <policy domain="delegate" rights="read" pattern="HTTPS" />
+  <policy domain="delegate" rights="read | write" pattern="HTTPS" />
   <policy domain="delegate" rights="none" pattern="HTTP" />
   <policy domain="path" rights="none" pattern="@*"/>
   <policy domain="cache" name="shared-secret" value="passphrase" stealth="true"/>
