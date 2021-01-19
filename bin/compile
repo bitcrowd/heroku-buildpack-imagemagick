@@ -12,7 +12,7 @@ VENDOR_DIR="$BUILD_DIR/vendor"
 mkdir -p $VENDOR_DIR
 INSTALL_DIR="$VENDOR_DIR/imagemagick"
 mkdir -p $INSTALL_DIR
-IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.5-10}"
+IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.7-10}"
 CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz"
 
 if [ ! -f $CACHE_FILE ]; then
@@ -59,10 +59,17 @@ echo "-----> Writing policy file"
 mkdir -p $INSTALL_DIR/etc/ImageMagick
 cat > $INSTALL_DIR/policy.xml <<EOF
 <policymap>
-  <policy domain="coder" rights="none" pattern="EPHEMERAL" />
-  <policy domain="coder" rights="none" pattern="HTTPS" />
-  <policy domain="coder" rights="none" pattern="MVG" />
-  <policy domain="coder" rights="none" pattern="MSL" />
+  <policy domain="resource" name="memory" value="256MiB"/>
+  <policy domain="resource" name="map" value="512MiB"/>
+  <policy domain="resource" name="width" value="16KP"/>
+  <policy domain="resource" name="height" value="16KP"/>
+  <policy domain="resource" name="area" value="128MB"/>
+  <policy domain="resource" name="disk" value="1GiB"/>
+  <policy domain="delegate" rights="none" pattern="URL" />
+  <policy domain="delegate" rights="read" pattern="HTTPS" />
+  <policy domain="delegate" rights="none" pattern="HTTP" />
+  <policy domain="path" rights="none" pattern="@*"/>
+  <policy domain="cache" name="shared-secret" value="passphrase" stealth="true"/>
 </policymap>
 EOF
 
