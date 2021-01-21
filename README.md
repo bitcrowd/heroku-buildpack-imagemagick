@@ -18,7 +18,7 @@ This buildpack is tested primarily against the `cedar-14` stack. Currently, a wo
 
 ## Warning
 
-**Do not use this buildpack if you do not need to enable `HTTPS` as a policy.**
+:rotating_light: **Do not use this buildpack if you do not need to enable `HTTPS` as a policy.** :rotating_light:
 
 See:
 - https://devcenter.heroku.com/changelog-items/891
