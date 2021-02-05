@@ -17,7 +17,7 @@ mkdir -p $INSTALL_DIR
 IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-7.0.10-56}"
 CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz"
 
-if [ ! -f $CACHE_FILE ]; then
+# if [ ! -f $CACHE_FILE ]; then
   # install imagemagick
   IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.tar.xz"
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
@@ -51,11 +51,11 @@ if [ ! -f $CACHE_FILE ]; then
   tar czf $REL_INSTALL_DIR.tar.gz $REL_INSTALL_DIR
   mv $REL_INSTALL_DIR.tar.gz $CACHE_FILE
 
-else
-  # cache exists, extract it
-  echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
-  tar xzf $CACHE_FILE -C $VENDOR_DIR
-fi
+# else
+#   # cache exists, extract it
+#   echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
+#   tar xzf $CACHE_FILE -C $VENDOR_DIR
+# fi
 
 echo "-----> Writing policy file"
 mkdir -p $INSTALL_DIR/etc/ImageMagick
