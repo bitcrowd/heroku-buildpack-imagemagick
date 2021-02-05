@@ -1,13 +1,10 @@
 #!/bin/bash
 
+set -o errexit
+
 indent() {
   sed -u 's/^/       /'
 }
-
-echo "-----> Install Pango"
-
-apt-get update
-apt-get install -y libpango1.0-dev
 
 echo "-----> Install ImageMagick"
 
