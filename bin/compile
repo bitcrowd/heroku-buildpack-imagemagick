@@ -39,7 +39,7 @@ CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz"
   cd $IMAGE_MAGICK_DIR
   export CPPFLAGS="-I$INSTALL_DIR/include"
   export LDFLAGS="-L$INSTALL_DIR/lib"
-  ./configure --prefix=$INSTALL_DIR --without-gvc --with-pango
+  ./configure CFLAGS=-fPIC --prefix=$INSTALL_DIR --without-gvc --with-pango
   make && make install
   cd ..
   rm -rf $IMAGE_MAGICK_DIR
@@ -59,7 +59,7 @@ CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz"
 
 echo "-----> Writing policy file"
 mkdir -p $INSTALL_DIR/etc/ImageMagick
-cat > $INSTALL_DIR/policy.xml <<EOF
+echo > $INSTALL_DIR/policy.xml <<EOF
 <policymap>
   <policy domain="resource" name="memory" value="256MiB"/>
   <policy domain="resource" name="map" value="512MiB"/>
