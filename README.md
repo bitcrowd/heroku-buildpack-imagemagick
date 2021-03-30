@@ -1,6 +1,8 @@
 heroku-buildpack-imagemagick
 =================================
 
+🚨 This repository is archived and will not receive maintenance from us anymore.
+
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for vendoring the ImageMagick binaries into your project. It was forked from [this repo](https://github.com/ello/heroku-buildpack-imagemagick).
 
 ## How it works
